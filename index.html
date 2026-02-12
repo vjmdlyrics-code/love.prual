@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>For My Special One ❤️</title>
+
+<style>
+body{
+    margin:0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg,#1a1a2e,#16213e);
+    color:#fff;
+    overflow-x:hidden;
+}
+
+.container{
+    width:90%;
+    max-width:800px;
+    margin:60px auto;
+    text-align:center;
+}
+
+.card{
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(15px);
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 0 30px rgba(255,0,100,0.4);
+}
+
+button{
+    padding:12px 25px;
+    margin:15px;
+    border:none;
+    border-radius:25px;
+    background:#ff4e8d;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+}
+
+button:hover{ background:#ff2e73; }
+
+.hidden{ display:none; }
+
+.message{
+    margin-top:20px;
+    font-size:16px;
+    line-height:1.8;
+    text-align:left;
+    white-space:pre-line;
+    word-wrap:break-word;
+}
+
+input{
+    padding:10px;
+    border-radius:10px;
+    border:none;
+    text-align:center;
+}
+
+/* floating */
+.heart{
+    position:fixed;
+    bottom:-20px;
+    animation:float 6s linear infinite;
+    z-index:-1;
+}
+@keyframes float{
+    0%{transform:translateY(0);opacity:1;}
+    100%{transform:translateY(-100vh);opacity:0;}
+}
+
+/* explosion */
+.explode{
+    position:fixed;
+    font-size:25px;
+    animation:burst 1s ease-out forwards;
+}
+@keyframes burst{
+    0%{opacity:1;transform:scale(1);}
+    100%{opacity:0;transform:translateY(-200px) scale(2);}
+}
+
+/* LAST PAGE */
+#last3{
+    background:url("pruall.jpg") no-repeat center center;
+    background-size:cover;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+#last3 .card{
+    background:rgba(0,0,0,0.6);
+}
+</style>
+</head>
+<body>
+
+<audio id="bgMusic" loop>
+  <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mpeg">
+</audio>
+
+<!-- PASSWORD -->
+<div class="container" id="passwordPage">
+  <div class="card">
+    <h2>Enter Secret Password ❤️</h2>
+    <input type="password" id="passInput">
+    <br>
+    <button onclick="checkPass()">Enter</button>
+  </div>
+</div>
+
+<!-- HOME -->
+<div class="container hidden" id="page1">
+  <div class="card">
+    <h2>For my special one ❤️</h2>
+    <h3>This website is for...?</h3>
+    <button onclick="showPage('anjli')">Anjli</button>
+    <button onclick="showPage('pruall')">Prualllllllllllllllllll</button>
+  </div>
+</div>
+
+<div class="container hidden" id="anjli">
+  <div class="card">
+    <h3>u are not my special 😌</h3>
+    <p>Prualllllllllllllllllll is special for me ❤️</p>
+  </div>
+</div>
+
+<div class="container hidden" id="pruall">
+  <div class="card">
+    <h3>Are u mad? 😏</h3>
+    <button onclick="rightMad()">Yes</button>
+    <button onclick="wrongMad()">No</button>
+  </div>
+</div>
+
+<div class="container hidden" id="wrongMad">
+  <div class="card">
+    <p>u are not my Prualllllllllllllllllll ❤️</p>
+    <button onclick="goHome()">Back</button>
+  </div>
+</div>
+
+<div class="container hidden" id="question2">
+  <div class="card">
+    <h3>You are on right place ❤️</h3>
+    <p>One last question...</p>
+    <h4>What is your relation with mayank?</h4>
+    <button onclick="friend()">Friend</button>
+    <button onclick="openMessage()">Pta nhi</button>
+  </div>
+</div>
+
+<div class="container hidden" id="friendPage">
+  <div class="card">
+    <h3>chal nikal yaha se 😌</h3>
+    <button onclick="goHome()">Back</button>
+  </div>
+</div>
+
+<!-- MESSAGE PAGE -->
+<div class="container hidden" id="finalMessage">
+  <div class="card">
+    <h2>For My Prualllllllllllllllllll ❤️</h2>
+    <p class="message" id="typedText"></p>
+    <button onclick="proposal()">One Last Surprise 💍</button>
+  </div>
+</div>
+
+<!-- PRANK PAGES -->
+<div class="container hidden" id="last1">
+  <div class="card">
+    <h2>last buttonn</h2>
+    <button onclick="goLast2()">click here</button>
+  </div>
+</div>
+
+<div class="container hidden" id="last2">
+  <div class="card">
+    <h2>sorry for lying this is last button</h2>
+    <button onclick="goLast3()">click here</button>
+  </div>
+</div>
+
+<div class="container hidden" id="last3">
+  <div class="card">
+    <h1>GUUU KHAAA LEEE TUUU</h1>
+  </div>
+</div>
+
+<script>
+
+let fullMessage = `Yaaarrrr pagal Prualllllllllllllllllll anjli tu kyu ladti h merse tujse bht pyr krta hu me but tuje wo chaiye ni toh tere liye ek wafadaar dost bhi hu me, tu kyu muh bnati h jb mera mood khrb hota h sambhal lia kr muje kyu tu khud muh sada k beth jati h 
+
+M rokk tokk ni kr skta kuki muje haq ni hai lekin tu khud smjh jaya kr naa m nrz hota hu khud muh bna leti h. 
+Muje bhi bura lg jata h yrr tu mere liye bht jaada khaas h m tuje kbh durr ni kr skta apne se pr fr b pta ni tu kyu br br m bt ni krungi ye kr dungi wo kr dungi
+Or hmare beech kch hota bhi h toh wo chiz hm aps m b toh sort kr skte h ye sbke samne show krne se yrr kch nhi hota yrr fr sb baat or bnate h tu ek br boldia kr merse aake ye hua h tu durr kyu bhagati h muje kyuuuuuuuu? 
+Mt bhagaya kr mt raha kr aakele muje acha ni lgtaaa muje btaya kr m kch b krne k liye ready teri face p smile dekhne k liye
+
+Mne aaj tk kbhi bhi tuje force ni kra haa krne k loye yaha tk k mne propose bhi ni kra tko aaj tk bss apni feelings share kri h
+
+Lekin aaj mere ander ek chull h please bura mt maanio yaar 
+Muje pta h tuje acha ni lgega pr aaj mnn h toh bolra hu
+
+I loveee uuuu yaaarr ❤️
+
+Hm lifetime sath ni rhe skte lekin jb tk bhi hai m tuje 101% kosish krunga tko khush rkhne ki merse gltiya hoti h lekin m bhi toh insaan he hu naa yaaar ho jati h usme ye toh mt bola kr roj roj hora h m tang aagyi m bt ni krungi yrr drr jata hu mee. Please smjhioo.
+I luv u❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️`;
+
+function checkPass(){
+  if(document.getElementById("passInput").value==="pruall"){
+    document.getElementById("passwordPage").classList.add("hidden");
+    document.getElementById("page1").classList.remove("hidden");
+    document.getElementById("bgMusic").play();
+  } else { alert("Wrong password 😜"); }
+}
+
+function showPage(id){ hideAll(); document.getElementById(id).classList.remove("hidden"); }
+function wrongMad(){ hideAll(); document.getElementById("wrongMad").classList.remove("hidden"); }
+function rightMad(){ hideAll(); document.getElementById("question2").classList.remove("hidden"); }
+function friend(){ hideAll(); document.getElementById("friendPage").classList.remove("hidden"); }
+
+function openMessage(){
+  hideAll();
+  document.getElementById("finalMessage").classList.remove("hidden");
+  typeEffect();
+}
+
+function goHome(){ hideAll(); document.getElementById("page1").classList.remove("hidden"); }
+
+function hideAll(){
+  document.querySelectorAll(".container").forEach(p=>p.classList.add("hidden"));
+}
+
+function typeEffect(){
+  let i=0;
+  let target=document.getElementById("typedText");
+  target.innerHTML="";
+  function typing(){
+    if(i<fullMessage.length){
+      target.innerHTML+=fullMessage.charAt(i);
+      i++;
+      setTimeout(typing,15);
+    }
+  }
+  typing();
+}
+
+function proposal(){ hideAll(); document.getElementById("last1").classList.remove("hidden"); }
+function goLast2(){ hideAll(); document.getElementById("last2").classList.remove("hidden"); }
+function goLast3(){ hideAll(); document.getElementById("last3").classList.remove("hidden"); }
+
+setInterval(()=>{
+  const heart=document.createElement("div");
+  heart.className="heart";
+  heart.innerHTML=Math.random()>0.5?"❤️":"Prualllllllllllllllllll ❤️";
+  heart.style.left=Math.random()*100+"vw";
+  heart.style.fontSize=(Math.random()*20+15)+"px";
+  document.body.appendChild(heart);
+  setTimeout(()=>{heart.remove();},6000);
+},600);
+
+</script>
+</body>
+</html>
